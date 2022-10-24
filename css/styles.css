@@ -15,6 +15,7 @@ body {
     font-size: 14px;
     background-color: var(--color-background);
     font-family: Roboto;
+    overflow: hidden;
 }
 
 h1,
@@ -164,6 +165,15 @@ color: #2196F3;
     color: #FFFFFF;
     cursor: pointer;
     letter-spacing: 0.06em;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-button:hover {
+    background-color: #FFFFFF;
+    color: var(--color-accent);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .advantages-title {
@@ -585,10 +595,6 @@ color: #2196F3;
     overflow: hidden;
 }
 
-.project-item-box {
-    overflow: hidden;
-}
-
 .project-description {
     position: absolute;
     top: 0;
@@ -612,7 +618,6 @@ color: #2196F3;
 
 .project-item:hover .project-description {
     transform: translateY(0);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-item-box {
@@ -623,6 +628,7 @@ color: #2196F3;
     padding-right: 24px;
     padding-bottom: 20px;
     padding-left: 24px;
+    overflow: hidden;
 }
 
 .category {
@@ -946,9 +952,9 @@ color: #2196F3;
     top: 0;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.2);
-    transition: opacity 250ms, visibility 250ms;
-    /* animation-name: scale;
-    animation-duration: 250ms; */
+    /* transition-property: opacity, visibility; 
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .modal {
@@ -964,15 +970,19 @@ color: #2196F3;
     border-radius: 4px;
     justify-content: right;
     animation-name: scale;
-    animation-duration: 250ms;
+    animation-duration: 1000ms;
 }
 
 @keyframes scale {
-    from {
+    0% {
         transform: scale(1);
     }
 
-    to {
+    50% {
+        transform: scale(3);
+    }
+
+    100% {
         transform: scale(2);
     }
 }
@@ -981,6 +991,10 @@ color: #2196F3;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .modal-close-button {
@@ -997,11 +1011,13 @@ color: #2196F3;
     margin-top: 8px;
     margin-right: 8px;
     cursor: pointer;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-button:hover,
 .modal-close-button:focus {
-    border: 1px solid #2196F3;
+    border: 2px solid #2196F3;
 }
 
 .site-nav-studio, .site-nav-port, .site-nav-contact, {
