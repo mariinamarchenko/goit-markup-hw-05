@@ -15,7 +15,6 @@ body {
     font-size: 14px;
     background-color: var(--color-background);
     font-family: Roboto;
-    overflow: hidden;
 }
 
 h1,
@@ -993,9 +992,9 @@ color: #2196F3;
     pointer-events: none;
 }
 
-.backdrop.is-hidden .modal {
+/* .backdrop.is-hidden .modal {
     transform: translate(-50%, -50%) scale(1);
-}
+} */
 
 .modal-close-button {
     display: flex;
